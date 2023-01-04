@@ -176,10 +176,9 @@ export const useLocalStore = create<ILocalStore>((set, get) => {
     const visibleUsers = get().visibleUsers
     const usersOnStage = get().usersOnStage
     conference?.setReceiverConstraints({
-      "colibriClass": "SelectedEndpointsChangedEvent",
-      "selectedEndpoints": [...visibleUsers, ...usersOnStage],
+      "selectedSources": [...visibleUsers, ...usersOnStage],
       "lastN": visibleUsers.length + usersOnStage.length,
-      "onStageEndpoints": [...usersOnStage], // The endpoint ids of the participants that are prioritized up to a higher resolution.
+      "onStageSources": [...usersOnStage], // The endpoint ids of the participants that are prioritized up to a higher resolution.
       "defaultConstraints": { "maxHeight": 200 }, // Default resolution requested for all endpoints.
       "constraints": { // Endpoint specific resolution.
       },
